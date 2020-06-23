@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import React, { forwardRef, useState, useEffect, useRef } from 'react';
-import { message } from 'antd';
-import { formatMessage } from 'umi-plugin-react/locale';
+import { message } from 'antd;
 // @ts-ignore
 import * as qiniu from 'qiniu-js';
 import ComUpload from './ComUpload';
@@ -92,7 +91,7 @@ const VVUpload = forwardRef((props: any, ref: any) => {
                 setUploadToken(tokenValue);
                 setFileObj(file);
             } else {
-                message.error(`${formatMessage({ id: 'component.vvUpload.overLimitDuration' })}`);
+                message.error('超出限制时长');
             }
         };
     };
@@ -103,13 +102,13 @@ const VVUpload = forwardRef((props: any, ref: any) => {
         const isLimitSize = !size || file.size / 1024 / 1024 < size;
         let isLimitType = false;
         if (!isLimitSize) {
-            message.error(`${formatMessage({ id: 'component.vvUpload.overLimitSize' })}`);
+            message.error('超出限制大小');
             return isLimitSize;
         }
         if (type === 'video') {
             isLimitType = fileType.startsWith('video');
             if (!isLimitType) {
-                message.error(`${formatMessage({ id: 'component.vvUpload.typeError' })}`);
+                message.error('文件类型错误');
                 return isLimitType;
             }
         }
@@ -117,7 +116,7 @@ const VVUpload = forwardRef((props: any, ref: any) => {
             const currentFileType = fileType.substring(fileType.indexOf('/') + 1, fileType.length);
             isLimitType = accept.indexOf(currentFileType) > -1;
             if (!isLimitType) {
-                message.error(`${formatMessage({ id: 'component.vvUpload.typeError' })}`);
+                message.error('文件类型错误');
                 return isLimitType;
             }
         }
@@ -206,7 +205,7 @@ const VVUpload = forwardRef((props: any, ref: any) => {
             },
             // 上传失败
             error() {
-                message.error(`${formatMessage({ id: 'component.vvUpload.uploadError' })}`);
+                message.error('上传失败');
                 setUploadLoading(false);
             },
             // 上传完成
