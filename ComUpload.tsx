@@ -45,7 +45,7 @@ const ComUpload = forwardRef((props: any, ref: any) => {
                 <div>
                     <Icon type={uploadLoading ? 'loading' : 'plus'} />
                     <div className="ant-upload-text" style={{ display: uploadLoading ? 'none' : 'block' }}>
-                        {formatMessage({ id: 'component.vvUpload.uploadImage' })}
+                        上传图片
                     </div>
                 </div>
             );
@@ -55,7 +55,7 @@ const ComUpload = forwardRef((props: any, ref: any) => {
                 <div>
                     <Icon style={{ fontSize: '40px' }} type={uploadLoading ? 'loading' : 'video-camera'} />
                     <div className="ant-upload-text" style={{ display: uploadLoading ? 'none' : 'block' }}>
-                        {formatMessage({ id: 'component.vvUpload.uploadVideo' })}
+                        添加视频
                     </div>
                 </div>
             );
@@ -89,9 +89,9 @@ const ComUpload = forwardRef((props: any, ref: any) => {
                 )}
             </div>
             <Popconfirm
-                title={formatMessage({ id: 'component.vvUpload.confirm.content' })}
-                okText={formatMessage({ id: 'component.vvUpload.confirm.confirm' })}
-                cancelText={formatMessage({ id: 'component.vvUpload.confirm.cancel' })}
+                title="是否确定删除"
+                okText="确定"
+                cancelText="取消"
                 placement="left"
                 onConfirm={() => deleteFileList(index)}
             >
@@ -109,10 +109,10 @@ const ComUpload = forwardRef((props: any, ref: any) => {
                     <Progress percent={uploadProcess} showInfo={false} />
                     <Row style={{ lineHeight: 'initial', marginBottom: 10 }}>
                         <Col span={6}>
-                            {formatMessage({ id: 'component.vvUpload.process' })}：{uploadProcess.toFixed(2)}%
+                            上传进度：{uploadProcess.toFixed(2)}%
                         </Col>
                         <Col span={9}>
-                            {formatMessage({ id: 'component.vvUpload.uploaded' })}：
+                            已上传：
                             {uploadSize && uploadSize / (1024 * 1024) >= 1
                                 ? `${(uploadSize / (1024 * 1024)).toFixed(2)} M`
                                 : `${(uploadSize / 1024).toFixed(2)} KB`}
@@ -122,16 +122,16 @@ const ComUpload = forwardRef((props: any, ref: any) => {
                                 : `${(uploadTotal / 1024).toFixed(2)} KB`}
                         </Col>
                         <Col span={6}>
-                            {formatMessage({ id: 'component.vvUpload.uploadRate' })}：
+                           速度：
                             {uploadRate && uploadRate / (1024 * 1024) >= 1
                                 ? `${(uploadRate / (1024 * 1024)).toFixed(2)} M/S`
                                 : `${(uploadRate / 1024).toFixed(2)} KB/S`}
                         </Col>
                         <Col span={3}>
                             <Popconfirm
-                                title={formatMessage({ id: 'component.vvUpload.confirm.content' })}
-                                okText={formatMessage({ id: 'component.vvUpload.confirm.confirm' })}
-                                cancelText={formatMessage({ id: 'component.vvUpload.confirm.cancel' })}
+                                title="是否确定删除"
+                                okText="确定"
+                                cancelText="取消"
                                 placement="left"
                                 onConfirm={
                                     uploadProcess < 100 ? () => deleteTempFile(fileValue) : () => deleteFileList(index)
@@ -194,9 +194,9 @@ const ComUpload = forwardRef((props: any, ref: any) => {
                                     />
                                     {isFinishHidden ? (
                                         <Popconfirm
-                                            title={formatMessage({ id: 'component.vvUpload.confirm.content' })}
-                                            okText={formatMessage({ id: 'component.vvUpload.confirm.confirm' })}
-                                            cancelText={formatMessage({ id: 'component.vvUpload.confirm.cancel' })}
+                                            title="是否确定删除"
+                                            okText="确定"
+                                            cancelText="取消"
                                             placement="left"
                                             onConfirm={() => deleteFileList(index)}
                                         >
